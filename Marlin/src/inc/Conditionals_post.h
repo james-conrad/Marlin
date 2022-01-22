@@ -1896,6 +1896,9 @@
     #if AXIS_HAS_STEALTHCHOP(X2)
       #define X2_HAS_STEALTHCHOP 1
     #endif
+    #if ENABLED(SPI_ENDSTOPS)
+      #define X2_SPI_SENSORLESS X2_SENSORLESS
+    #endif
     #ifndef X2_INTERPOLATE
       #define X2_INTERPOLATE X_INTERPOLATE
     #endif
@@ -1926,22 +1929,26 @@
     #ifndef Y_SLAVE_ADDRESS
       #define Y_SLAVE_ADDRESS 0
     #endif
-    #if ENABLED(Y_DUAL_STEPPER_DRIVERS)
-      #if defined(Y2_STALL_SENSITIVITY) && AXIS_HAS_STALLGUARD(Y2)
-        #define Y2_SENSORLESS 1
-      #endif
-      #if AXIS_HAS_STEALTHCHOP(Y2)
-        #define Y2_HAS_STEALTHCHOP 1
-      #endif
-      #ifndef Y2_INTERPOLATE
-        #define Y2_INTERPOLATE Y_INTERPOLATE
-      #endif
-      #ifndef Y2_HOLD_MULTIPLIER
-        #define Y2_HOLD_MULTIPLIER Y_HOLD_MULTIPLIER
-      #endif
-      #ifndef Y2_SLAVE_ADDRESS
-        #define Y2_SLAVE_ADDRESS 0
-      #endif
+  #endif
+
+  #if AXIS_IS_TMC(Y2)
+    #if defined(Y2_STALL_SENSITIVITY) && AXIS_HAS_STALLGUARD(Y2)
+      #define Y2_SENSORLESS 1
+    #endif
+    #if AXIS_HAS_STEALTHCHOP(Y2)
+      #define Y2_HAS_STEALTHCHOP 1
+    #endif
+    #if ENABLED(SPI_ENDSTOPS)
+      #define Y2_SPI_SENSORLESS Y2_SENSORLESS
+    #endif
+    #ifndef Y2_INTERPOLATE
+      #define Y2_INTERPOLATE Y_INTERPOLATE
+    #endif
+    #ifndef Y2_HOLD_MULTIPLIER
+      #define Y2_HOLD_MULTIPLIER Y_HOLD_MULTIPLIER
+    #endif
+    #ifndef Y2_SLAVE_ADDRESS
+      #define Y2_SLAVE_ADDRESS 0
     #endif
   #endif
 

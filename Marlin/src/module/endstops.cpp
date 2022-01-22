@@ -1118,6 +1118,8 @@ void Endstops::update() {
           || stepperY.test_stall_status()
         #elif CORE_IS_XZ && Z_SPI_SENSORLESS
           || stepperZ.test_stall_status()
+        #elif X_DUAL_STEPPER_DRIVERS && X2_SPI_SENSORLESS
+          && stepperX2.test_stall_status()
         #endif
       )) {
         SBI(live_state, X_ENDSTOP);
@@ -1130,6 +1132,8 @@ void Endstops::update() {
           || stepperX.test_stall_status()
         #elif CORE_IS_YZ && Z_SPI_SENSORLESS
           || stepperZ.test_stall_status()
+        #elif ENABLED(Y_DUAL_STEPPER_DRIVERS) && Y2_SPI_SENSORLESS
+          && stepperY2.test_stall_status()
         #endif
       )) {
         SBI(live_state, Y_ENDSTOP);

@@ -1362,7 +1362,7 @@ void prepare_line_to_destination() {
         #if X_SENSORLESS
           case X_AXIS:
             stealth_states.x = tmc_enable_stallguard(stepperX);
-            #if AXIS_HAS_STALLGUARD(X2)
+            #if X2_SENSORLESS
               stealth_states.x2 = tmc_enable_stallguard(stepperX2);
             #endif
             #if ANY(CORE_IS_XY, MARKFORGED_XY, MARKFORGED_YX) && Y_SENSORLESS
@@ -1375,7 +1375,7 @@ void prepare_line_to_destination() {
         #if Y_SENSORLESS
           case Y_AXIS:
             stealth_states.y = tmc_enable_stallguard(stepperY);
-            #if AXIS_HAS_STALLGUARD(Y2)
+            #if Y2_SENSORLESS
               stealth_states.y2 = tmc_enable_stallguard(stepperY2);
             #endif
             #if ANY(CORE_IS_XY, MARKFORGED_XY, MARKFORGED_YX) && X_SENSORLESS
@@ -1448,7 +1448,7 @@ void prepare_line_to_destination() {
         #if X_SENSORLESS
           case X_AXIS:
             tmc_disable_stallguard(stepperX, enable_stealth.x);
-            #if AXIS_HAS_STALLGUARD(X2)
+            #if X2_SENSORLESS
               tmc_disable_stallguard(stepperX2, enable_stealth.x2);
             #endif
             #if ANY(CORE_IS_XY, MARKFORGED_XY, MARKFORGED_YX) && Y_SENSORLESS
@@ -1461,7 +1461,7 @@ void prepare_line_to_destination() {
         #if Y_SENSORLESS
           case Y_AXIS:
             tmc_disable_stallguard(stepperY, enable_stealth.y);
-            #if AXIS_HAS_STALLGUARD(Y2)
+            #if Y2_SENSORLESS
               tmc_disable_stallguard(stepperY2, enable_stealth.y2);
             #endif
             #if ANY(CORE_IS_XY, MARKFORGED_XY, MARKFORGED_YX) && X_SENSORLESS

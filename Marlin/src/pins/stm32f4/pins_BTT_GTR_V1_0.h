@@ -141,25 +141,25 @@
   #define Z_CS_PIN                          PB5
 #endif
 
-#define E0_STEP_PIN                         PG12
-#define E0_DIR_PIN                          PG11
-#define E0_ENABLE_PIN                       PG13
-#ifndef E0_CS_PIN
-  #define E0_CS_PIN                         PG10
+#define I_STEP_PIN                         PG12
+#define I_DIR_PIN                          PG11
+#define I_ENABLE_PIN                       PG13
+#ifndef I_CS_PIN
+  #define I_CS_PIN                         PG10
 #endif
 
-#define E1_STEP_PIN                         PD6
-#define E1_DIR_PIN                          PD5
-#define E1_ENABLE_PIN                       PD7
-#ifndef E1_CS_PIN
-  #define E1_CS_PIN                         PD4
+#define J_STEP_PIN                         PD6
+#define J_DIR_PIN                          PD5
+#define J_ENABLE_PIN                       PD7
+#ifndef J_CS_PIN
+  #define J_CS_PIN                         PD4
 #endif
 
-#define E2_STEP_PIN                         PD1
-#define E2_DIR_PIN                          PD0
-#define E2_ENABLE_PIN                       PD2
-#ifndef E2_CS_PIN
-  #define E2_CS_PIN                         PC12
+#define Y2_STEP_PIN                         PD1
+#define Y2_DIR_PIN                          PD0
+#define Y2_ENABLE_PIN                       PD2
+#ifndef Y2_CS_PIN
+  #define Y2_CS_PIN                         PC12
 #endif
 
 #if ENABLED(M5_EXTENDER)
